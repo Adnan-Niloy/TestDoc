@@ -1,7 +1,32 @@
-﻿@{
+﻿@model TestDoc.Models.DocProperties
+@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+@using (Html.BeginForm("ExportToWord", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <br /><br />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @*<label for="Name" class="label-default">Name:</label>*@
+        @Html.LabelFor(m => Model.Rno)
+        @Html.TextBoxFor(m => m.Rno, new { @class = "form-control", autofocus = "autofocus" })
+        @*<input name="Name" class="text-info" />*@
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => Model.Code)
+        @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => Model.Description)
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+    </div>
+    @*<div class="form-group">
+            <label for="Age" class="label-default">A g e:</label>
+            <input name="Age" class="text-info" />
+        </div>*@
+    @*<button type="submit" class="btn-primary">Submit</button>*@
+    <button type="submit" class="btn btn-primary btn-md">Save</button>
+}
