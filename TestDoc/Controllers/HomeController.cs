@@ -11,19 +11,19 @@ namespace TestDoc.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+        //public ActionResult About()
+        //{
+        //    ViewBag.Message = "Your application description page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
         public void ExportToWord(DocProperties model)
         {
@@ -54,7 +54,7 @@ namespace TestDoc.Controllers
             //return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
 
             Response.ContentType = "application/docx";
-            Response.AppendHeader("Content-Disposition", "attachment; filename=SailBig.docx");
+            Response.AppendHeader("Content-Disposition", "attachment; filename=Info.docx");
             Response.TransmitFile(savePath);
             Response.End();
 
